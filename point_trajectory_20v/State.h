@@ -7,6 +7,7 @@ class State
 public:
 
 	virtual void change_body(time_ _delta, Body* body) = 0;
+	virtual State* clone() const = 0;
 };
 
 #endif // !STATE_H_

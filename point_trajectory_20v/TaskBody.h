@@ -13,6 +13,8 @@ private:
 public:
 
 	// Унаследовано через Body
+	Sprite* clone() const override;
+	
 	virtual std::string description() const override;
 
 	virtual std::vector<std::string> tick(time_ delta) override;
@@ -26,6 +28,7 @@ public:
 	//constructions
 	TaskBody(World* world, const WorldPoint& place, speed_ Vx, speed_ Vy);
 	TaskBody(World* world, coordinate_ x, coordinate_ y, speed_ Vx, speed_ Vy);
+	TaskBody(const TaskBody& orig);
 	~TaskBody();
 
 

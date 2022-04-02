@@ -10,9 +10,7 @@ int main()
 {
 	Location location(100000, 100000, 10, list<Sprite*>());
 	location.add_sprite(new TaskBody(&location, 0, 0, 0, 0));
-
 	ofstream fout("test.txt");
-
     double V;
     cout << " V = "; 
     cin >> V;

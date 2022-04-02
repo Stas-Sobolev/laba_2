@@ -17,3 +17,8 @@ void FlyState::change_body(time_ _delta, Body* body)
 	body->set_place(WorldPoint(x, y, body->get_world()));
 
 }
+
+State* FlyState::clone() const
+{
+	return new FlyState(*this);
+}

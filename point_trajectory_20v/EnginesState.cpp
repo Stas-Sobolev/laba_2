@@ -12,3 +12,8 @@ void EnginesState::change_body(time_ _delta, Body* body)
 	
 	
 }
+
+State* EnginesState::clone() const
+{
+	return new EnginesState(*this);
+}

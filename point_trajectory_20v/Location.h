@@ -40,6 +40,8 @@ public:
 
 	//constructors
 	Location(coordinate_ height, coordinate_ width, acceleration_ gravity, const std::list<Sprite*>& sprites);
+	Location(const Location& orig);
+	const Location& operator=(const Location& orig);
 	~Location();
 };
 

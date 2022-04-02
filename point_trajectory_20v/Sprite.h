@@ -19,6 +19,7 @@ public:
 	Sprite(World* world, coordinate_ x, coordinate_ y);
 	Sprite(World* world, const WorldPoint& place);
 
+	virtual Sprite* clone() const = 0;
 };
 
 #endif // !SPRITE_H_

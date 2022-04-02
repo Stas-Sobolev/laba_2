@@ -81,6 +81,28 @@ void Location::stop()
 Location::Location(coordinate_ height, coordinate_ width, acceleration_ gravity, const std::list<Sprite*>& sprites):
 	_height(height), _width(width), _gravity(gravity), _sprites(sprites){}
 
+Location::Location(const Location& orig)
+{
+	_width = orig._width;
+	_height = orig._height;
+	_gravity = orig._gravity;
+	for (auto sprite : orig._sprites)
+		_sprites.push_back(sprite->clone());
+}
+
+const Location& Location::operator=(const Location& orig)
+{
+	if (this == &orig)
+		return *this;
+	if (!(this->_sprites.empty()))
+		for (auto it = _sprites.begin(); it != _sprites.end(); it++)
+			delete (*it);
+	_sprites.clear();
+	for (auto sprite : orig._sprites)
+		_sprites.push_back(sprite->clone());
+	return *this;
+}
+
 Location::~Location()
 {
 	for (auto sprite : _sprites)
